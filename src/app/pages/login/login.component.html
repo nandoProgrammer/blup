@@ -1,0 +1,56 @@
+<div class="container text-center">
+  <div class="logo"></div>
+  <h1 *ngIf="login">Fazer Login</h1>
+  <h1 *ngIf="createAccount">Criar Conta</h1>
+  <h1 *ngIf="verifyEmail">Coloque seu email</h1>
+  <h1 *ngIf="newPassword">Colque a nova senha</h1>
+  <form *ngIf="login" class="m-auto mt-5">
+     <div class="input-group input-group-sm mb-3">
+      <input type="text" class="text-white form-control bg-dark rounded-pill p-3" placeholder="Email" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <input type="password" class="text-white form-control bg-dark rounded-pill p-3" placeholder="Senha" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+    </div>
+    <div class="mb-4">
+      <button type="button" class="btn btn-outline-secondary rounded-pill px-3 py-2 btn-lg" (click)="ok()"><strong>Fazer Login</strong></button>
+      <button type="button" class="btn btn-outline-primary rounded-pill px-3 py-2 btn-lg mx-2" (click)="ok()"><strong>Criar Conta</strong></button>
+    </div>
+    <a class="text-dark text-decoration-none" (click)="newPasswordActive()">Redefinir senha</a>
+  </form>
+  <form *ngIf="verifyEmail" class="m-auto mt-5">
+    <div class="input-group input-group-sm mb-3">
+    <input type="text" class="text-white form-control bg-dark rounded-pill p-3" placeholder="Email" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+  </div>
+  <div class="mb-4">
+    <button type="button" class="btn btn-outline-secondary rounded-pill px-3 py-2 btn-lg" (click)="ok()"><strong>Verificar</strong></button>
+  </div>
+  <a class="text-dark text-decoration-none" (click)="backHome()">voltar</a>
+</form>
+  <form *ngIf="createAccount" class="m-auto mt-5">
+    <div class="input-group input-group-sm mb-3">
+    <input type="text" class="text-white form-control bg-dark rounded-pill p-3" placeholder="Email" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+  </div>
+  <div class="input-group input-group-sm mb-3">
+    <input type="password" class="text-white form-control bg-dark rounded-pill p-3" placeholder="Senha" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+  </div>
+  <div class="mb-4">
+    <button type="button" class="btn btn-outline-secondary rounded-pill px-3 py-2 btn-lg" (click)="ok()"><strong>Fazer Login</strong></button>
+    <button type="button" class="btn btn-outline-primary rounded-pill px-3 py-2 btn-lg mx-2" (click)="ok()"><strong>Criar Conta</strong></button>
+  </div>
+  <a class="text-dark text-decoration-none" (click)="ok()">Redefinir senha</a>
+  </form>
+
+  <form *ngIf="newPassword" class="m-auto mt-5">
+    <div class="input-group input-group-sm mb-3">
+    <input type="text" class="text-white form-control bg-dark rounded-pill p-3" placeholder="Email" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+  </div>
+  <div class="input-group input-group-sm mb-3">
+    <input type="password" class="text-white form-control bg-dark rounded-pill p-3" placeholder="Senha" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+  </div>
+  <div class="mb-4">
+    <button type="button" class="btn btn-outline-secondary rounded-pill px-3 py-2 btn-lg" (click)="ok()"><strong>Fazer Login</strong></button>
+    <button type="button" class="btn btn-outline-primary rounded-pill px-3 py-2 btn-lg mx-2" (click)="ok()"><strong>Criar Conta</strong></button>
+  </div>
+  <a class="text-dark text-decoration-none" (click)="ok()">Redefinir senha</a>
+  </form>
+</div>
