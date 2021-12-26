@@ -21,6 +21,14 @@ export class LoginComponent implements OnInit {
     alert('ok')
   }
 
+  createAccountActive(){
+    this.login = false;
+    this.verifyEmail = false;
+    this.createAccount = true;
+    this.verifyEmail = false;
+    this.newPassword = false;
+  }
+
   newPasswordActive(){
     this.login = false;
     this.verifyEmail = true;
@@ -29,6 +37,9 @@ export class LoginComponent implements OnInit {
   backHome(){
     this.login = true;
     this.verifyEmail = false;
+    this.createAccount = false;
+    this.verifyEmail = false;
+    this.newPassword = false;
   }
 
 }
