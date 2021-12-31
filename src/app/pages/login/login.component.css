@@ -16,9 +16,22 @@
 }
 
 form{
-  width: 400px;
+  width: 40%;
 }
 
 input, button{
   box-shadow: #cecece 10px 10px 10px;
+}
+
+@media (max-width: 600px)
+{
+
+  form{
+    width: 90%;
+  }
+
+  .container{
+    background-image: none;
+  }
+
 }
