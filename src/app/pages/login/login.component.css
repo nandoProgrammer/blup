@@ -1,11 +1,12 @@
 .container{
 
-  background-image: url('../../assets/bg-login.svg');
+  /*background-image: url('../../assets/bg-login.svg');*/
   background-repeat: no-repeat;
   background-size: 300px;
   background-position: right;
 
 }
+
 .logo{
   background-image: url('../../assets/logo.png');
   width: 250px;

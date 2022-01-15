@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,13 +13,36 @@ export class LoginComponent implements OnInit {
   verifyEmail: boolean = false;
   newPassword: boolean = false;
 
+  //Inputs
+
+  /* Login */
+  loginInput: string = '';
+  passwordInput: string = '';
+
+  /* Verify Email */
+  verifyEmailInput: string = '';
+
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
   ok(){
-    alert('ok')
+    alert("ok")
+  }
+
+  auth(){
+    console.log(this.loginInput);
+    console.log(this.passwordInput);
+  }
+
+  newPasswordVerifyEmail(){
+    console.log(this.verifyEmailInput);
+  }
+
+  joinUs(){
+    console.log('ok');
   }
 
   createAccountActive(){
