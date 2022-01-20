@@ -1,5 +1,5 @@
 <div class="container text-center">
-  <div *ngIf="login || verifyEmail || newPassword" class="logo"></div>
+  <div class="logo"></div>
 
   <h1 *ngIf="login">Fazer Login</h1>
   <h1 *ngIf="createAccount">Criar Conta</h1>
@@ -8,30 +8,30 @@
 
   <form *ngIf="login" class="m-auto mt-5" (ngSubmit)="auth()">
      <div class="input-group input-group-sm mb-3">
-        <input type="email" 
-          name="loginInput" 
-          [(ngModel)]="loginInput" 
+        <input type="email"
+          name="loginInput"
+          [(ngModel)]="loginInput"
           class="text-white form-control bg-dark rounded-pill p-3"
-          placeholder="Email" 
-          aria-label="Small" 
+          placeholder="Email"
+          aria-label="Small"
           aria-describedby="inputGroup-sizing-sm">
      </div>
      <div class="input-group input-group-sm mb-3">
-        <input type="password" 
+        <input type="password"
           name="passwordInput"
-          [(ngModel)]="passwordInput" 
-          class="text-white form-control bg-dark rounded-pill p-3" 
-          placeholder="Senha" 
-          aria-label="Small" 
+          [(ngModel)]="passwordInput"
+          class="text-white form-control bg-dark rounded-pill p-3"
+          placeholder="Senha"
+          aria-label="Small"
           aria-describedby="inputGroup-sizing-sm">
      </div>
      <div class="mb-4">
-        <button type="submit" 
+        <button type="submit"
           class="btn btn-outline-secondary rounded-pill px-3 py-2 btn-lg">
             <strong>Fazer Login</strong>
          </button>
 
-        <button type="button" class="btn btn-outline-primary rounded-pill px-3 py-2 btn-lg mx-2" 
+        <button type="button" class="btn btn-outline-primary rounded-pill px-3 py-2 btn-lg mx-2"
           (click)="createAccountActive()">
           <strong>Criar Conta</strong>
         </button>
@@ -42,16 +42,16 @@
 
   <form *ngIf="verifyEmail" class="m-auto mt-5" (ngSubmit)="newPasswordVerifyEmail()">
      <div class="input-group input-group-sm mb-3">
-        <input type="text" 
-          name="verifyEmailInput" 
+        <input type="text"
+          name="verifyEmailInput"
           [(ngModel)]="verifyEmailInput"
-          class="text-white form-control bg-dark rounded-pill p-3" 
-          placeholder="Email" 
-          aria-label="Small" 
+          class="text-white form-control bg-dark rounded-pill p-3"
+          placeholder="Email"
+          aria-label="Small"
           aria-describedby="inputGroup-sizing-sm">
      </div>
      <div class="mb-4">
-        <button type="submit" 
+        <button type="submit"
           class="btn btn-outline-secondary rounded-pill px-3 py-2 btn-lg">
             <strong>Verificar</strong>
         </button>
@@ -61,27 +61,27 @@
 
   <form *ngIf="newPassword" class="m-auto mt-5">
     <div class="input-group input-group-sm mb-3">
-       <input type="text" 
-         class="text-white form-control bg-dark rounded-pill p-3" 
-         placeholder="Email" 
-         aria-label="Small" 
+       <input type="text"
+         class="text-white form-control bg-dark rounded-pill p-3"
+         placeholder="Email"
+         aria-label="Small"
          aria-describedby="inputGroup-sizing-sm">
     </div>
     <div class="input-group input-group-sm mb-3">
-       <input type="password" 
-         class="text-white form-control bg-dark rounded-pill p-3" 
-         placeholder="Senha" 
-         aria-label="Small" 
+       <input type="password"
+         class="text-white form-control bg-dark rounded-pill p-3"
+         placeholder="Senha"
+         aria-label="Small"
          aria-describedby="inputGroup-sizing-sm">
     </div>
     <div class="mb-4">
-       <button type="button" 
-         class="btn btn-outline-secondary rounded-pill px-3 py-2 btn-lg" 
+       <button type="button"
+         class="btn btn-outline-secondary rounded-pill px-3 py-2 btn-lg"
          (click)="ok()">
            <strong>Fazer Login</strong>
       </button>
-       <button type="button" 
-         class="btn btn-outline-primary rounded-pill px-3 py-2 btn-lg mx-2" 
+       <button type="button"
+         class="btn btn-outline-primary rounded-pill px-3 py-2 btn-lg mx-2"
          (click)="ok()">
             <strong>Criar Conta</strong>
          </button>
@@ -91,72 +91,58 @@
 
   <form *ngIf="createAccount" class="m-auto mt-5" (ngSubmit)="joinUs()">
    <div class="input-group input-group-sm mb-3">
-      <input type="text" 
-        class="text-white form-control bg-dark rounded-pill p-3" 
-        placeholder="Nome" 
-        aria-label="Small" 
+      <input type="text"
+        [(ngModel)]="nameNewUserInput"
+        class="text-white form-control bg-dark rounded-pill p-3"
+        placeholder="Nome"
+        aria-label="Small"
         aria-describedby="inputGroup-sizing-sm">
    </div>
      <div class="input-group input-group-sm mb-3">
-        <input type="text" 
-          class="text-white form-control bg-dark rounded-pill p-3" 
-          placeholder="Email" 
-          aria-label="Small" 
+        <input type="text"
+          [(ngModel)]="emailNewUserInput"
+          class="text-white form-control bg-dark rounded-pill p-3"
+          placeholder="Email"
+          aria-label="Small"
           aria-describedby="inputGroup-sizing-sm">
      </div>
      <div class="input-group input-group-sm mb-3">
-        <input type="password" 
-          class="text-white form-control bg-dark rounded-pill p-3" 
-          placeholder="Senha" 
-          aria-label="Small" 
+        <input type="password"
+          [(ngModel)]="passwordNewUserInput"
+          class="text-white form-control bg-dark rounded-pill p-3"
+          placeholder="Senha"
+          aria-label="Small"
           aria-describedby="inputGroup-sizing-sm">
 
-          <input type="password" 
-          class="text-white form-control bg-dark rounded-pill p-3" 
-          placeholder="Senha" 
-          aria-label="Small" 
+        <input type="password"
+          [(ngModel)]="newPasswordNewUserInput"
+          class="text-white form-control bg-dark rounded-pill p-3"
+          placeholder="Repetir Senha"
+          aria-label="Small"
           aria-describedby="inputGroup-sizing-sm">
      </div>
      <div class="input-group input-group-sm mb-3">
-      <input type="password" 
-        class="text-white form-control bg-dark rounded-pill p-3" 
-        placeholder="Senha" 
-        aria-label="Small" 
-        aria-describedby="inputGroup-sizing-sm">
-
-        <input type="password" 
-        class="text-white form-control bg-dark rounded-pill p-3" 
-        placeholder="Senha" 
-        aria-label="Small" 
-        aria-describedby="inputGroup-sizing-sm">
-
-        <input type="password" 
-        class="text-white form-control bg-dark rounded-pill p-3" 
-        placeholder="Senha" 
-        aria-label="Small" 
-        aria-describedby="inputGroup-sizing-sm">
+        <input type="date"
+          [(ngModel)]="dateBirthNewUserInput"
+          class="text-white form-control bg-dark rounded-pill p-3"
+          placeholder="Senha"
+          aria-label="Small"
+          aria-describedby="inputGroup-sizing-sm">
      </div>
      <div class="input-group input-group-sm mb-3">
-      <input type="password" 
-        class="text-white form-control bg-dark rounded-pill p-3" 
-        placeholder="Senha" 
-        aria-label="Small" 
-        aria-describedby="inputGroup-sizing-sm">
-
-        <input type="password" 
-        class="text-white form-control bg-dark rounded-pill p-3" 
-        placeholder="Senha" 
-        aria-label="Small" 
-        aria-describedby="inputGroup-sizing-sm">
-
-        <input type="password" 
-        class="text-white form-control bg-dark rounded-pill p-3" 
-        placeholder="Senha" 
-        aria-label="Small" 
-        aria-describedby="inputGroup-sizing-sm">
+        <select
+          [(ngModel)]="genderNewUserInput"
+          class="text-white form-control bg-dark rounded-pill p-3"
+          placeholder="Senha"
+          aria-label="Small"
+          aria-describedby="inputGroup-sizing-sm">
+            <option value="MASC">Masculino</option>
+            <option value="FEM">Feminino</option>
+            <option value="OTHER">Outro</option>
+        </select>
      </div>
      <div class="mb-4">
-        <button type="submit" 
+        <button type="submit"
           class="btn btn-outline-secondary rounded-pill px-3 py-2 btn-lg">
             <strong>Criar Conta</strong>
          </button>

@@ -22,6 +22,13 @@ export class LoginComponent implements OnInit {
   /* Verify Email */
   verifyEmailInput: string = '';
 
+  /* Create Account */
+  nameNewUserInput: string = '';
+  emailNewUserInput: string = '';
+  passwordNewUserInput: string = '';
+  newPasswordNewUserInput: string = '';
+  dateBirthNewUserInput: string = '';
+  genderNewUserInput: string = '';
 
   constructor() { }
 
