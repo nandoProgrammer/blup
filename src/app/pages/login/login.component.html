@@ -6,11 +6,11 @@
   <h1 *ngIf="verifyEmail">Coloque seu email</h1>
   <h1 *ngIf="newPassword">Colque a nova senha</h1>
 
-  <form *ngIf="login" class="m-auto mt-5" (ngSubmit)="auth()">
+  <form *ngIf="login" [formGroup]="formLogin" class="m-auto mt-5" (ngSubmit)="auth()">
      <div class="input-group input-group-sm mb-3">
         <input type="email"
-          name="loginInput"
-          [(ngModel)]="loginInput"
+          name="user"
+          formControlName="user"
           class="text-white form-control bg-dark rounded-pill p-3"
           placeholder="Email"
           aria-label="Small"
@@ -18,8 +18,8 @@
      </div>
      <div class="input-group input-group-sm mb-3">
         <input type="password"
-          name="passwordInput"
-          [(ngModel)]="passwordInput"
+          name="password"
+          formControlName="password"
           class="text-white form-control bg-dark rounded-pill p-3"
           placeholder="Senha"
           aria-label="Small"
@@ -43,8 +43,6 @@
   <form *ngIf="verifyEmail" class="m-auto mt-5" (ngSubmit)="newPasswordVerifyEmail()">
      <div class="input-group input-group-sm mb-3">
         <input type="text"
-          name="verifyEmailInput"
-          [(ngModel)]="verifyEmailInput"
           class="text-white form-control bg-dark rounded-pill p-3"
           placeholder="Email"
           aria-label="Small"
@@ -92,7 +90,6 @@
   <form *ngIf="createAccount" class="m-auto mt-5" (ngSubmit)="joinUs()">
    <div class="input-group input-group-sm mb-3">
       <input type="text"
-        [(ngModel)]="nameNewUserInput"
         class="text-white form-control bg-dark rounded-pill p-3"
         placeholder="Nome"
         aria-label="Small"
@@ -100,7 +97,6 @@
    </div>
      <div class="input-group input-group-sm mb-3">
         <input type="text"
-          [(ngModel)]="emailNewUserInput"
           class="text-white form-control bg-dark rounded-pill p-3"
           placeholder="Email"
           aria-label="Small"
@@ -108,14 +104,12 @@
      </div>
      <div class="input-group input-group-sm mb-3">
         <input type="password"
-          [(ngModel)]="passwordNewUserInput"
           class="text-white form-control bg-dark rounded-pill p-3"
           placeholder="Senha"
           aria-label="Small"
           aria-describedby="inputGroup-sizing-sm">
 
         <input type="password"
-          [(ngModel)]="newPasswordNewUserInput"
           class="text-white form-control bg-dark rounded-pill p-3"
           placeholder="Repetir Senha"
           aria-label="Small"
@@ -123,7 +117,6 @@
      </div>
      <div class="input-group input-group-sm mb-3">
         <input type="date"
-          [(ngModel)]="dateBirthNewUserInput"
           class="text-white form-control bg-dark rounded-pill p-3"
           placeholder="Senha"
           aria-label="Small"
@@ -131,7 +124,6 @@
      </div>
      <div class="input-group input-group-sm mb-3">
         <select
-          [(ngModel)]="genderNewUserInput"
           class="text-white form-control bg-dark rounded-pill p-3"
           placeholder="Senha"
           aria-label="Small"

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import  { FormBuilder, FormGroup, Validators }  from  '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -13,26 +13,19 @@ export class LoginComponent implements OnInit {
   verifyEmail: boolean = false;
   newPassword: boolean = false;
 
-  //Inputs
+  formLogin: FormGroup;
 
-  /* Login */
-  loginInput: string = '';
-  passwordInput: string = '';
-
-  /* Verify Email */
-  verifyEmailInput: string = '';
-
-  /* Create Account */
-  nameNewUserInput: string = '';
-  emailNewUserInput: string = '';
-  passwordNewUserInput: string = '';
-  newPasswordNewUserInput: string = '';
-  dateBirthNewUserInput: string = '';
-  genderNewUserInput: string = '';
-
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
+    this.createForm()
+  }
+
+  createForm() {
+    this.formLogin = this.formBuilder.group({
+       user: ['', [Validators.required,, Validators.email]],
+       password: ['', [Validators.required, Validators.minLength(8)]]
+    })
   }
 
   ok(){
@@ -40,12 +33,10 @@ export class LoginComponent implements OnInit {
   }
 
   auth(){
-    console.log(this.loginInput);
-    console.log(this.passwordInput);
+    console.log(this.formLogin)
   }
 
   newPasswordVerifyEmail(){
-    console.log(this.verifyEmailInput);
   }
 
   joinUs(){
