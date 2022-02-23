@@ -9,21 +9,25 @@
   <form *ngIf="login" [formGroup]="formLogin" class="m-auto mt-5" (ngSubmit)="auth()">
      <div class="input-group input-group-sm mb-3">
         <input type="email"
-          name="user"
           formControlName="user"
           class="text-white form-control bg-dark rounded-pill p-3"
           placeholder="Email"
           aria-label="Small"
           aria-describedby="inputGroup-sizing-sm">
+        <span>email Inválido</span>
      </div>
      <div class="input-group input-group-sm mb-3">
-        <input type="password"
+        <input [type]="typeInputPassword"
           name="password"
           formControlName="password"
           class="text-white form-control bg-dark rounded-pill p-3"
           placeholder="Senha"
           aria-label="Small"
           aria-describedby="inputGroup-sizing-sm">
+        <div class="btn-show-hide-password" (click)="passwordShowHide()">
+           <i *ngIf="!statusInputPassword" class="bi bi-eye-fill"></i>
+           <i *ngIf="statusInputPassword" class="bi bi-eye-slash-fill"></i>
+        </div>
      </div>
      <div class="mb-4">
         <button type="submit"
