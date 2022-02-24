@@ -13,8 +13,7 @@ export class LoginComponent implements OnInit {
   verifyEmail: boolean = false;
   newPassword: boolean = false;
   
-  statusInputPassword: boolean = true;
-  typeInputPassword: string;
+  statusInputPassword: boolean = false;
 
   formLogin: FormGroup;
 
@@ -26,13 +25,13 @@ export class LoginComponent implements OnInit {
 
   createForm() {
     this.formLogin = this.formBuilder.group({
-       user: ['', [Validators.required,, Validators.email]],
+       user: ['', [Validators.required, Validators.email]],
        password: ['', [Validators.required, Validators.minLength(8)]]
     })
   }
 
-  get fLogin(){
-    return this.formLogin
+  fLogin(campo: string){
+    return this.formLogin.get(campo);
   }
 
   ok(){
@@ -40,7 +39,7 @@ export class LoginComponent implements OnInit {
   }
 
   auth(){
-    console.log(this.formLogin)
+    console.log(this.formLogin.get('user').errors)
   }
 
   newPasswordVerifyEmail(){
@@ -73,11 +72,6 @@ export class LoginComponent implements OnInit {
 
   passwordShowHide(){
      this.statusInputPassword = !this.statusInputPassword;
-     if(this.statusInputPassword){
-       this.typeInputPassword = 'text';
-     }else{
-       this.typeInputPassword = 'password';
-     }
   }
 
 }

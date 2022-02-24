@@ -6,7 +6,15 @@
   <h1 *ngIf="verifyEmail">Coloque seu email</h1>
   <h1 *ngIf="newPassword">Colque a nova senha</h1>
 
-  <form *ngIf="login" [formGroup]="formLogin" class="m-auto mt-5" (ngSubmit)="auth()">
+  <div *ngIf="fLogin('user').errors && fLogin('user').touched">
+     <h3 class="text-danger">Email inválido</h3>
+  </div>
+
+  <div *ngIf="fLogin('password').errors && fLogin('password').touched">
+     <h3 class="text-danger">Senha Inválida</h3>
+  </div>
+
+  <form *ngIf="login" [formGroup]="formLogin" class="m-auto mt-3" (ngSubmit)="auth()">
      <div class="input-group input-group-sm mb-3">
         <input type="email"
           formControlName="user"
@@ -14,10 +22,9 @@
           placeholder="Email"
           aria-label="Small"
           aria-describedby="inputGroup-sizing-sm">
-        <span>email Inválido</span>
      </div>
      <div class="input-group input-group-sm mb-3">
-        <input [type]="typeInputPassword"
+        <input [type]="statusInputPassword ? 'text' : 'password'"
           name="password"
           formControlName="password"
           class="text-white form-control bg-dark rounded-pill p-3"
