@@ -1,8 +1,9 @@
-import express from "express";
+import express from 'express';
+import routes from './routes';
+
 const app = express();
+routes(app);
 
-app.get('/hello', (req, res) => {
-    return res.send("Hello!")
-})
+const port = 3000;
 
-app.listen('3000');
+app.listen(port);
