@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import  { FormBuilder, FormControl, FormGroup, Validators }  from  '@angular/forms';
+import  { AbstractControl, FormBuilder, FormControl, FormGroup, Validators }  from  '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  fLogin(campo: string) {
+  fLogin(campo: string):AbstractControl {
     return this.formLogin.get(campo);
   }
 
