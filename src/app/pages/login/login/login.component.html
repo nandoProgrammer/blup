@@ -1,0 +1,50 @@
+<div class="container text-center">
+  <div class="logo"></div>
+  <h1>Fazer Login</h1>
+
+  <div *ngIf="fLogin().get('user').errors && fLogin('user').touched">
+     <h3 class="text-danger">Email inválido</h3>
+  </div>
+
+  <div *ngIf="fLogin('password').errors && fLogin('password').touched">
+     <h3 class="text-danger">Senha Inválida</h3>
+  </div>
+
+  <form [formGroup]="formLogin" class="m-auto mt-3" (ngSubmit)="auth()">
+     <div class="input-group input-group-sm mb-3">
+        <input type="email"
+          formControlName="user"
+          class="text-white form-control bg-dark rounded-pill p-3"
+          placeholder="Email"
+          aria-label="Small"
+          aria-describedby="inputGroup-sizing-sm">
+     </div>
+     <div class="input-group input-group-sm mb-3">
+        <input [type]="statusInputPassword ? 'text' : 'password'"
+          name="password"
+          formControlName="password"
+          class="text-white form-control bg-dark rounded-pill p-3"
+          placeholder="Senha"
+          aria-label="Small"
+          aria-describedby="inputGroup-sizing-sm">
+        <div class="btn-show-hide-password" (click)="passwordShowHide()">
+           <i *ngIf="!statusInputPassword" class="bi bi-eye-fill"></i>
+           <i *ngIf="statusInputPassword" class="bi bi-eye-slash-fill"></i>
+        </div>
+     </div>
+     <div class="mb-4">
+        <button type="submit"
+          class="btn btn-outline-secondary rounded-pill px-3 py-2 btn-lg">
+            <strong>Fazer Login</strong>
+         </button>
+
+        <a type="button"
+          class="btn btn-outline-primary rounded-pill px-3 py-2 btn-lg mx-2"
+          routerLink="/login/create-account">
+          <strong>Criar Conta</strong>
+        </a>
+     </div>
+     <a class="text-dark text-decoration-none" routerLink="/login/new-password">Redefinir senha</a>
+  </form>
+
+</div>

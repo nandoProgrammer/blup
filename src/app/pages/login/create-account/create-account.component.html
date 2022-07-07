@@ -1,0 +1,59 @@
+<div class="container text-center">
+  <div class="logo"></div>
+  <h1>Criar Conta</h1>
+  <form [formGroup]="formCreateUser" class="m-auto mt-5" (ngSubmit)="createUser()">
+   <div class="input-group input-group-sm mb-3">
+      <input type="text"
+        class="text-white form-control bg-dark rounded-pill p-3"
+        placeholder="Nome"
+        aria-label="Small"
+        aria-describedby="inputGroup-sizing-sm">
+   </div>
+     <div class="input-group input-group-sm mb-3">
+        <input type="text"
+          class="text-white form-control bg-dark rounded-pill p-3"
+          placeholder="Email"
+          aria-label="Small"
+          aria-describedby="inputGroup-sizing-sm">
+     </div>
+     <div class="input-group input-group-sm mb-3">
+        <input type="password"
+          class="text-white form-control bg-dark rounded-pill p-3"
+          placeholder="Senha"
+          aria-label="Small"
+          aria-describedby="inputGroup-sizing-sm">
+
+        <input type="password"
+          class="text-white form-control bg-dark rounded-pill p-3"
+          placeholder="Repetir Senha"
+          aria-label="Small"
+          aria-describedby="inputGroup-sizing-sm">
+     </div>
+     <div class="input-group input-group-sm mb-3">
+        <input type="date"
+          class="text-white form-control bg-dark rounded-pill p-3"
+          placeholder="Senha"
+          aria-label="Small"
+          aria-describedby="inputGroup-sizing-sm">
+     </div>
+     <div class="input-group input-group-sm mb-3">
+        <select
+          class="text-white form-control bg-dark rounded-pill p-3"
+          placeholder="Senha"
+          aria-label="Small"
+          aria-describedby="inputGroup-sizing-sm">
+            <option value="MASC">Masculino</option>
+            <option value="FEM">Feminino</option>
+            <option value="OTHER">Outro</option>
+        </select>
+     </div>
+     <div class="mb-4">
+        <button type="submit"
+          class="btn btn-outline-secondary rounded-pill px-3 py-2 btn-lg">
+            <strong>Criar Conta</strong>
+         </button>
+     </div>
+     <a class="text-dark text-decoration-none"
+       routerLink="">Voltar</a>
+  </form>
+</div>

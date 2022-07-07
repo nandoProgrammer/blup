@@ -20,7 +20,7 @@ form{
   width: 40%;
 }
 
-input, button{
+input, .btn{
   box-shadow: #cecece 10px 10px 10px;
 }
 
