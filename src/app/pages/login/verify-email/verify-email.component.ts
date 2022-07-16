@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import  { FormBuilder, FormGroup, Validators }  from  '@angular/forms';
 
 @Component({
-  selector: 'new-password',
-  templateUrl: './new-password.component.html',
-  styleUrls: ['../login.css', './new-password.component.css']
+  selector: 'verify-email',
+  templateUrl: './verify-email.component.html',
+  styleUrls: ['../login.css', './verify-email.component.css']
 })
-export class NewPasswordComponent implements OnInit {
+
+export class VerifyEmailComponent implements OnInit {
 
   formLogin: FormGroup;
 
@@ -19,19 +20,11 @@ export class NewPasswordComponent implements OnInit {
   createForm() {
     this.formLogin = this.formBuilder.group({
        user: ['', [Validators.required, Validators.email]],
-       password: ['', [Validators.required, Validators.minLength(8)]]
     })
   }
 
   fLogin(campo: string){
     return this.formLogin.get(campo);
-  }
-
-  newPasswordVerifyEmail(){
-  }
-
-  joinUs(){
-    console.log('ok');
   }
 
 }

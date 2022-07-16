@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LoginComponent } from './pages/login/login/login.component';
 import { CreateAccountComponent } from './pages/login/create-account/create-account.component';
+import { VerifyEmailComponent } from './pages/login/verify-email/verify-email.component';
 import { NewPasswordComponent } from './pages/login/new-password/new-password.component';
 
 const routes: Routes = [
@@ -20,6 +21,11 @@ const routes: Routes = [
       path: 'login/new-password',
       component: NewPasswordComponent,
       loadChildren: () => import('./pages/login/new-password/new-password.module').then(m => m.NewPasswordModule)
+    },
+    {
+      path: 'login/verify-email',
+      component: VerifyEmailComponent,
+      loadChildren: () => import('./pages/login/verify-email/verify-email.module').then(m => m.VerifyEmailModule)
     },
 
 ]

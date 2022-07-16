@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 
 import { LoginComponent } from './pages/login/login/login.component';
 import { CreateAccountComponent } from './pages/login/create-account/create-account.component';
+import { VerifyEmailComponent } from './pages/login/verify-email/verify-email.component';
 import { NewPasswordComponent } from './pages/login/new-password/new-password.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -15,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     LoginComponent,
     CreateAccountComponent,
+    VerifyEmailComponent,
     NewPasswordComponent
   ],
   imports: [

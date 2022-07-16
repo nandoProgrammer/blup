@@ -2,12 +2,15 @@
   <div class="logo"></div>
   <h1>Fazer Login</h1>
 
-  <div *ngIf="fLogin().get('user').errors && fLogin('user').touched">
+  <div *ngIf="fLogin('user').errors && fLogin('user').touched && fLogin('user').value.length > 0">
      <h3 class="text-danger">Email inválido</h3>
   </div>
 
-  <div *ngIf="fLogin('password').errors && fLogin('password').touched">
-     <h3 class="text-danger">Senha Inválida</h3>
+  <div *ngIf="fLogin('password').errors && 
+    fLogin('password').touched && 
+    fLogin('password').value.length < 8 && 
+    fLogin('password').value.length > 0">
+     <h3 class="text-danger">A senha precisa ter no mínimo 8 caracteres</h3>
   </div>
 
   <form [formGroup]="formLogin" class="m-auto mt-3" (ngSubmit)="auth()">
@@ -44,7 +47,7 @@
           <strong>Criar Conta</strong>
         </a>
      </div>
-     <a class="text-dark text-decoration-none" routerLink="/login/new-password">Redefinir senha</a>
+     <a class="text-dark text-decoration-none" routerLink="/login/verify-email">Redefinir senha</a>
   </form>
 
 </div>
