@@ -1,22 +1,20 @@
 <div class="container text-center">
     <div class="logo"></div>
     <h1>Coloque seu email</h1>
-    <form class="m-auto mt-5">
+    <form [formGroup]="formVerifyEmail" class="m-auto mt-5" (ngSubmit)="verifyEmail()">
        <div class="input-group input-group-sm mb-3">
           <input type="text"
              class="text-white form-control bg-dark rounded-pill p-3"
              placeholder="Email"
+             formControlName="email"
              aria-label="Small"
              aria-describedby="inputGroup-sizing-sm">
        </div>
        <div class="mb-4">
-          <button type="button"
-             class="btn btn-outline-primary rounded-pill px-3 py-2 btn-lg mx-2">
-           <strong>Enviar</strong>
+          <button type="submit" class="btn btn-outline-primary rounded-pill px-3 py-2 btn-lg mx-2">
+              <strong>Enviar</strong>
           </button>
        </div>
-       <a class="text-dark text-decoration-none"
-         routerLink="">Voltar</a>
+       <a class="text-dark text-decoration-none"routerLink="">Voltar</a>
     </form>
   </div>
-  

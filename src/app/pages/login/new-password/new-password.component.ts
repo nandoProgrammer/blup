@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import  { FormBuilder, FormGroup, Validators }  from  '@angular/forms';
+import  { AbstractControl, FormBuilder, FormGroup, Validators }  from  '@angular/forms';
 
 @Component({
   selector: 'new-password',
@@ -8,30 +8,28 @@ import  { FormBuilder, FormGroup, Validators }  from  '@angular/forms';
 })
 export class NewPasswordComponent implements OnInit {
 
-  formLogin: FormGroup;
+  formNewPassword: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {}
 
-  ngOnInit(): void {
+  ngOnInit():void {
     this.createForm()
   }
 
   createForm() {
-    this.formLogin = this.formBuilder.group({
+    this.formNewPassword = this.formBuilder.group({
        user: ['', [Validators.required, Validators.email]],
        password: ['', [Validators.required, Validators.minLength(8)]]
     })
   }
 
-  fLogin(campo: string){
-    return this.formLogin.get(campo);
+  fNewPassword(campo: string): AbstractControl{
+    return this.formNewPassword.get(campo);
   }
 
-  newPasswordVerifyEmail(){
+  resetPassword():void {
+    console.log(this.formNewPassword.value);
   }
 
-  joinUs(){
-    console.log('ok');
-  }
 
 }

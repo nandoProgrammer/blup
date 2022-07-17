@@ -1,25 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import  { AbstractControl, FormBuilder, FormControl, FormGroup, Validators }  from  '@angular/forms';
-import { Router } from '@angular/router';
+import  { AbstractControl, FormBuilder, FormGroup, Validators }  from  '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['../login.css', './login.component.css']
 })
+
 export class LoginComponent implements OnInit {
 
   statusInputPassword: boolean = false;
-
   formLogin: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router
   ) {}
 
   ngOnInit():void {
-    this.createForm()
+    this.createForm();
   }
 
   createForm():void {
@@ -34,11 +32,7 @@ export class LoginComponent implements OnInit {
   }
 
   auth():void {
-    console.log(this.formLogin.get('user').errors)
-  }
-
-  joinUs():void {
-    console.log('ok');
+    console.log(this.formLogin.value);
   }
 
   passwordShowHide():void {

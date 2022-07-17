@@ -9,22 +9,26 @@ import  { FormBuilder, FormGroup, Validators }  from  '@angular/forms';
 
 export class VerifyEmailComponent implements OnInit {
 
-  formLogin: FormGroup;
+  formVerifyEmail: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {}
 
-  ngOnInit(): void {
-    this.createForm()
+  ngOnInit():void {
+    this.createForm();
   }
 
   createForm() {
-    this.formLogin = this.formBuilder.group({
-       user: ['', [Validators.required, Validators.email]],
+    this.formVerifyEmail = this.formBuilder.group({
+       email: ['', [Validators.required, Validators.email]],
     })
   }
 
-  fLogin(campo: string){
-    return this.formLogin.get(campo);
+  verifyEmail():void {
+    console.log(this.formVerifyEmail.value);
+  }
+
+  fVerifyEmail(campo: string){
+    return this.formVerifyEmail.get(campo);
   }
 
 }
