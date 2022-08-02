@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,9 @@ import { VerifyEmailComponent } from './pages/login/verify-email/verify-email.co
 import { NewPasswordComponent } from './pages/login/new-password/new-password.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { AuthInterceptor } from './core/interceptors/auth.interceptor';
+import { UrlInterceptor } from './core/interceptors/url.interceptor';
 
 @NgModule({
   declarations: [
@@ -23,9 +27,21 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: UrlInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import  { AbstractControl, FormBuilder, FormGroup, Validators }  from  '@angular/forms';
+import { LocalStorage } from 'src/app/core/classes/localstorage';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +16,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    private authService: AuthService
   ) {}
 
   ngOnInit():void {
@@ -32,7 +35,18 @@ export class LoginComponent implements OnInit {
   }
 
   auth():void {
-    console.log(this.formLogin.value);
+
+    let data = {
+      "user": this.formLogin.value.user,
+      "password": this.formLogin.value.password,
+    };
+
+    this.authService.auth(data).subscribe(res => {
+      LocalStorage.setItem('token', res.token);
+    },(error) => {
+      console.warn(error.message)
+    })
+    
   }
 
   passwordShowHide():void {

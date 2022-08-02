@@ -21,10 +21,8 @@ export class FormValidations{
          if(field.value !== formControl.value){
            return { equalsTo : otherField }
          }
-
          return null;
       }
       return validator;
    }
-
 }
