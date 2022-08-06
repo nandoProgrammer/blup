@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import  { AbstractControl, FormBuilder, FormGroup, Validators }  from  '@angular/forms';
-import { LocalStorage } from 'src/app/core/classes/localstorage';
+import { Router } from '@angular/router';
+
+import { LocalStorage } from 'src/app/core/classes/LocalStorage';
 import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
@@ -16,7 +18,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit():void {
@@ -41,10 +44,16 @@ export class LoginComponent implements OnInit {
       "password": this.formLogin.value.password,
     };
 
-    this.authService.auth(data).subscribe(res => {
+    this.authService.auth(data)
+    .subscribe(res => {
+
       LocalStorage.setItem('token', res.token);
+      this.router.navigate(['/']);
+
     },(error) => {
-      console.warn(error.message)
+
+      throw new Error(error.message);
+
     })
     
   }

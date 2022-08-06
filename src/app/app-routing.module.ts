@@ -6,9 +6,13 @@ import { CreateAccountComponent } from './pages/login/create-account/create-acco
 import { VerifyEmailComponent } from './pages/login/verify-email/verify-email.component';
 import { NewPasswordComponent } from './pages/login/new-password/new-password.component';
 
+import { MainComponent } from './pages/dashboard/main/main.component';
+
+import { AuthGuard } from './core/guards/auth.guard';
+
 const routes: Routes = [
     {
-      path: '',
+      path: 'login',
       component: LoginComponent,
       loadChildren: () => import('./pages/login/login/login.module').then(m => m.LoginModule)
     },
@@ -27,7 +31,12 @@ const routes: Routes = [
       component: VerifyEmailComponent,
       loadChildren: () => import('./pages/login/verify-email/verify-email.module').then(m => m.VerifyEmailModule)
     },
-
+    {
+      path: '',
+      component: MainComponent,
+      loadChildren: () => import('./pages/dashboard/main/main.module').then(m => m.MainModule),
+      canActivate: [AuthGuard]
+    }
 ]
 
 @NgModule({
