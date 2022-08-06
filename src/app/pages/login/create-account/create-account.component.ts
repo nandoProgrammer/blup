@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import  { AbstractControl, FormBuilder, FormGroup, Validators }  from  '@angular/forms';
+import { Title } from '@angular/platform-browser';
 
 import { FormValidations } from 'src/app/core/classes/FormValidations';
 
@@ -11,7 +12,6 @@ import { FormValidations } from 'src/app/core/classes/FormValidations';
 
 export class CreateAccountComponent implements OnInit {
 
-
   sex: Array<{sex: string, name: string}> = [
     {sex: 'MASC', name: 'Masculino'},
     {sex: 'FEM', name: 'Feminino'},
@@ -20,7 +20,12 @@ export class CreateAccountComponent implements OnInit {
 
   formCreateUser: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private titleService: Title
+  ) {
+    this.titleService.setTitle('Criar Conta');
+  }
 
   ngOnInit():void {
     this.createForm();

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import  { AbstractControl, FormBuilder, FormGroup, Validators }  from  '@angular/forms';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 import { LocalStorage } from 'src/app/core/classes/LocalStorage';
 import { AuthService } from 'src/app/core/services/auth.service';
@@ -19,8 +20,11 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private titleService: Title
+  ) {
+    this.titleService.setTitle('Fazer Login');
+  }
 
   ngOnInit():void {
     this.createForm();
