@@ -1,50 +1,41 @@
 <div class="container text-center">
-  <div class="logo"></div>
-  <h1>Fazer Login</h1>
-
-  <div *ngIf="fLogin('user').errors && fLogin('user').touched && fLogin('user').value.length > 0">
-     <h3 class="text-danger">Email inválido</h3>
-  </div>
-
-  <div *ngIf="fLogin('password').errors &&
-    fLogin('password').touched &&
-    fLogin('password').value.length < 8 &&
-    fLogin('password').value.length > 0">
-     <h3 class="text-danger">A senha precisa ter no mínimo 8 caracteres</h3>
-  </div>
-
-  <form [formGroup]="formLogin" class="m-auto mt-3" (ngSubmit)="auth()">
-     <div class="input-group input-group-sm mb-3">
-        <input type="email"
-          formControlName="user"
-          class="text-white form-control bg-dark rounded-pill p-3"
-          placeholder="Email"
-          aria-label="Small"
-          aria-describedby="inputGroup-sizing-sm">
-     </div>
-     <div class="input-group input-group-sm mb-3">
-        <input [type]="statusInputPassword ? 'text' : 'password'"
-          name="password"
-          formControlName="password"
-          class="text-white form-control bg-dark rounded-pill p-3"
-          placeholder="Senha"
-          aria-label="Small"
-          aria-describedby="inputGroup-sizing-sm">
-        <div class="btn-show-hide-password" (click)="passwordShowHide()">
-           <i *ngIf="!statusInputPassword" class="bi bi-eye-fill"></i>
-           <i *ngIf="statusInputPassword" class="bi bi-eye-slash-fill"></i>
-        </div>
-     </div>
-     <div class="mb-4">
-        <app-button (click)="auth()">
-           <strong>Fazer Login</strong>
-        </app-button>
-        <a class="btn btn-outline-primary rounded-pill px-3 py-2 btn-lg mx-2"
-          routerLink="/login/create-account">
-          <strong>Criar Conta</strong>
-        </a>
-     </div>
-     <a class="text-dark text-decoration-none" routerLink="/login/verify-email">Redefinir senha</a>
-  </form>
-
+   <div class="logo"></div>
+   <h1>Fazer Login</h1>
+   <div *ngIf="fLogin('user').errors && fLogin('user').touched && fLogin('user').value.length > 0">
+      <h3 class="text-danger">Email inválido</h3>
+   </div>
+   <div *ngIf="fLogin('password').errors &&
+      fLogin('password').touched &&
+      fLogin('password').value.length < 8 &&
+      fLogin('password').value.length > 0">
+      <h3 class="text-danger">A senha precisa ter no mínimo 8 caracteres</h3>
+   </div>
+   <form [formGroup]="formLogin" class="m-auto mt-3" (ngSubmit)="auth()">
+   <div class="input-group input-group-sm mb-3">
+      <input type="email"
+         formControlName="user"
+         class="text-white form-control bg-dark rounded-pill p-3"
+         placeholder="Email">
+   </div>
+   <div class="input-group input-group-sm mb-3">
+      <input [type]="statusInputPassword ? 'text' : 'password'"
+         name="password"
+         formControlName="password"
+         class="text-white form-control bg-dark rounded-pill p-3"
+         placeholder="Senha">
+      <div class="btn-show-hide-password" (click)="passwordShowHide()">
+         <i *ngIf="!statusInputPassword" class="bi bi-eye-fill"></i>
+         <i *ngIf="statusInputPassword" class="bi bi-eye-slash-fill"></i>
+      </div>
+   </div>
+   </form>
+   <div class="mb-4">
+      <app-button classBtn="btn-outline-secondary" (click)="auth()">
+         <strong>Fazer Login</strong>
+      </app-button>
+      <app-button classBtn="btn-outline-primary" routerLink="/login/create-account">
+         <strong>Criar Conta</strong>
+      </app-button>
+   </div>
+   <a class="text-dark text-decoration-none" routerLink="/login/verify-email">Redefinir senha</a>
 </div>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import  { AbstractControl, FormBuilder, FormGroup, Validators }  from  '@angular/forms';
 
+import { Title } from '@angular/platform-browser';
+
 @Component({
   selector: 'new-password',
   templateUrl: './new-password.component.html',
@@ -10,7 +12,12 @@ export class NewPasswordComponent implements OnInit {
 
   formNewPassword: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private titleService: Title
+  ) {
+    this.titleService.setTitle('Blupr - Nova Senha');
+  }
 
   ngOnInit():void {
     this.createForm()

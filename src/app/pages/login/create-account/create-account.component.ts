@@ -4,6 +4,8 @@ import { Title } from '@angular/platform-browser';
 
 import { FormValidations } from 'src/app/core/classes/FormValidations';
 
+import { UserService } from 'src/app/core/services/user.service';
+
 @Component({
   selector: 'create-account',
   templateUrl: './create-account.component.html',
@@ -22,9 +24,10 @@ export class CreateAccountComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    private userService: UserService,
     private titleService: Title
   ) {
-    this.titleService.setTitle('Criar Conta');
+    this.titleService.setTitle('Blupr - Criar Conta');
   }
 
   ngOnInit():void {
@@ -47,7 +50,15 @@ export class CreateAccountComponent implements OnInit {
   }
 
   createUser():void {
-    console.log(this.formCreateUser.value);
+    let data = this.formCreateUser.value;
+    
+    this.userService.createUser(data)
+    .subscribe(res => {
+       
+    },
+    (error) => {
+       throw new Error(error.message);
+    })
   }
 
 

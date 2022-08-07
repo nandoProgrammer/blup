@@ -6,15 +6,13 @@
           <input type="text"
              class="text-white form-control bg-dark rounded-pill p-3"
              placeholder="Email"
-             formControlName="email"
-             aria-label="Small"
-             aria-describedby="inputGroup-sizing-sm">
+             formControlName="email">
        </div>
-       <div class="mb-4">
-          <button type="submit" class="btn btn-outline-primary rounded-pill px-3 py-2 btn-lg mx-2">
-              <strong>Enviar</strong>
-          </button>
-       </div>
-       <a class="text-dark text-decoration-none"routerLink="">Voltar</a>
     </form>
+    <div class="mb-4">
+      <app-button classBtn="btn-outline-primary">
+          <strong>Enviar</strong>
+      </app-button>
+    </div>
+    <a class="text-dark text-decoration-none"routerLink="">Voltar</a>
   </div>

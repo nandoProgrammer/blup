@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import  { FormBuilder, FormGroup, Validators }  from  '@angular/forms';
 
+import { Title } from '@angular/platform-browser';
+
 @Component({
   selector: 'verify-email',
   templateUrl: './verify-email.component.html',
@@ -11,7 +13,11 @@ export class VerifyEmailComponent implements OnInit {
 
   formVerifyEmail: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private titleService: Title) {
+      this.titleService.setTitle('Blupr - Verificar Email');
+    }
 
   ngOnInit():void {
     this.createForm();

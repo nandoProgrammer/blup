@@ -54,12 +54,11 @@
             <option *ngFor="let item of sex" [value]="item.sex">{{item.name}}</option>
         </select>
      </div>
-     <div class="mb-4">
-        <button type="submit" class="btn btn-outline-secondary rounded-pill px-3 py-2 btn-lg">
-            <strong>Criar Conta</strong>
-        </button>
-     </div>
-     <a class="text-dark text-decoration-none"
-       routerLink="">Voltar</a>
   </form>
+  <div class="mb-4">
+    <app-button classBtn="btn-outline-secondary" click="">
+        <strong>Criar Conta</strong>
+    </app-button>
+  </div>
+  <a class="text-dark text-decoration-none" routerLink="/">Voltar</a>
 </div>

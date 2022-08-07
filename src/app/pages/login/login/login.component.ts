@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import  { AbstractControl, FormBuilder, FormGroup, Validators }  from  '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators }  from  '@angular/forms';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private titleService: Title
   ) {
-    this.titleService.setTitle('Fazer Login');
+    this.titleService.setTitle('Blupr - Fazer Login');
   }
 
   ngOnInit():void {
