@@ -6,7 +6,7 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'verify-email',
   templateUrl: './verify-email.component.html',
-  styleUrls: ['../login.css', './verify-email.component.css']
+  styleUrls: ['../components/pages-login-component/pages-login.component.css','./verify-email.component.css']
 })
 
 export class VerifyEmailComponent implements OnInit {

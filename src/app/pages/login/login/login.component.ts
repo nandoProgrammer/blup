@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['../login.css', './login.component.css']
+  styleUrls: ['./login.component.css']
 })
 
 export class LoginComponent implements OnInit {
@@ -37,8 +37,12 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  fLogin(campo: string):AbstractControl {
-    return this.formLogin.get(campo);
+  fLogin(field: string):AbstractControl {
+    return this.formLogin.get(field);
+  }
+
+  cssError(field: string):boolean {
+    return !!this.fLogin(field).errors && this.formLogin.get(field).touched;
   }
 
   auth():void {

@@ -6,7 +6,7 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'new-password',
   templateUrl: './new-password.component.html',
-  styleUrls: ['../login.css', './new-password.component.css']
+  styleUrls: ['../components/pages-login-component/pages-login.component.css','./new-password.component.css']
 })
 export class NewPasswordComponent implements OnInit {
 
