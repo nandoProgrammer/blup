@@ -13,8 +13,8 @@ export class AuthGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    
-    if(LocalStorage.getItem('token')){
+
+    if(LocalStorage.getItem('tokenBlupr')){
       return true;
     }
 
@@ -22,5 +22,5 @@ export class AuthGuard implements CanActivate {
 
     return false;
   }
-  
+
 }

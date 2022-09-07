@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import  { AbstractControl, FormBuilder, FormGroup, Validators }  from  '@angular/forms';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 import { FormValidations } from 'src/app/core/classes/FormValidations';
 
@@ -25,7 +26,8 @@ export class CreateAccountComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
-    private titleService: Title
+    private titleService: Title,
+    private router: Router
   ) {
     this.titleService.setTitle('Blupr - Criar Conta');
   }
@@ -51,10 +53,10 @@ export class CreateAccountComponent implements OnInit {
 
   createUser():void {
     let data = this.formCreateUser.value;
-    
+
     this.userService.createUser(data)
     .subscribe(res => {
-       
+       this.router.navigate(['/login']);
     },
     (error) => {
        throw new Error(error.message);

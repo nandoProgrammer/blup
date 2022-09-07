@@ -3,7 +3,6 @@ import { AbstractControl, FormBuilder, FormGroup, Validators }  from  '@angular/
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
-import { LocalStorage } from 'src/app/core/classes/LocalStorage';
 import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
@@ -48,14 +47,13 @@ export class LoginComponent implements OnInit {
   auth():void {
 
     let data = {
-      "user": this.formLogin.value.user,
+      "email": this.formLogin.value.user,
       "password": this.formLogin.value.password,
     };
 
     this.authService.auth(data)
     .subscribe(res => {
 
-      LocalStorage.setItem('token', res.token);
       this.router.navigate(['/']);
 
     },(error) => {
@@ -63,7 +61,7 @@ export class LoginComponent implements OnInit {
       throw new Error(error.message);
 
     })
-    
+
   }
 
   passwordShowHide():void {
