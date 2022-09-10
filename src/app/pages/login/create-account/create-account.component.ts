@@ -21,6 +21,8 @@ export class CreateAccountComponent implements OnInit {
     {sex: 'OTHER', name: 'Outro'},
   ];
 
+  sexValue: string;
+
   formCreateUser: FormGroup;
 
   constructor(

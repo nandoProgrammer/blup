@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './pages/dashboard/main/main.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { UrlInterceptor } from './core/interceptors/url.interceptor';
@@ -22,6 +23,7 @@ import { PagesLoginComponent } from './pages/login/components/pages-login-compon
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgSelectModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule

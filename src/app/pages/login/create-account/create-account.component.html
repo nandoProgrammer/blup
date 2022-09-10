@@ -45,14 +45,9 @@
           aria-describedby="inputGroup-sizing-sm">
      </div>
      <div class="input-group input-group-sm mb-3">
-        <select
-          type="text"
-          class="text-white form-control bg-dark rounded-pill p-3"
-          formControlName="sex"
-          aria-label="Small"
-          aria-describedby="inputGroup-sizing-sm">
-            <option *ngFor="let item of sex" [value]="item.sex">{{item.name}}</option>
-        </select>
+        <ng-select [(ngModel)]="sexValue" placeholder="Sexo">
+            <ng-option *ngFor="let item of sex" [value]="item.sex">{{item.name}}</ng-option>
+        </ng-select>
      </div>
   </form>
   <div class="mb-4">
