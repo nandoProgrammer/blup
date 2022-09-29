@@ -22,7 +22,6 @@ export class CreateAccountComponent implements OnInit {
   ];
 
   sexValue: string;
-
   formCreateUser: FormGroup;
 
   constructor(
@@ -36,6 +35,7 @@ export class CreateAccountComponent implements OnInit {
 
   ngOnInit():void {
     this.createForm();
+    console.log(this.formCreateUser.controls['email'].errors)
   }
 
   createForm():void {
@@ -49,8 +49,10 @@ export class CreateAccountComponent implements OnInit {
     })
   }
 
-  fCreateUser(campo: string):AbstractControl {
-    return this.formCreateUser.get(campo);
+  compareFn = (a, b) => a.status === b.status;
+
+  get fCreateUser() {
+    return this.formCreateUser.controls;
   }
 
   createUser():void {

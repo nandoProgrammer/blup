@@ -1,0 +1,7 @@
+::ng-deep .ng-value-label {
+   color: #fff;
+}
+
+::ng-deep .ng-input {
+   padding: 10px;
+}

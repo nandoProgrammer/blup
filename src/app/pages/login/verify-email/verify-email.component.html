@@ -1,18 +1,26 @@
 <div class="container text-center">
     <div class="logo"></div>
     <h1>Coloque seu email</h1>
-    <form [formGroup]="formVerifyEmail" class="m-auto mt-5" (ngSubmit)="verifyEmail()">
+    <form [formGroup]="formVerifyEmail" class="m-auto mt-5" (ngSubmit)="resetPassword()">
        <div class="input-group input-group-sm mb-3">
           <input type="text"
              class="text-white form-control bg-dark rounded-pill p-3"
              placeholder="Email"
-             formControlName="email">
+             formControlName="email"
+             [ngClass]="{ 'is-invalid': fVerifyEmail['email'].errors && fVerifyEmail['email'].touched }">
+
+         <div *ngIf="fVerifyEmail['email'].errors && fVerifyEmail['email'].touched" 
+               class="invalid-feedback">
+            <span>Email Inválido</span>
+         </div>
+       </div>   
+
+       <div class="mb-4">
+         <app-button classBtn="btn-outline-primary">
+             <strong>Enviar</strong>
+         </app-button>
        </div>
     </form>
-    <div class="mb-4">
-      <app-button classBtn="btn-outline-primary">
-          <strong>Enviar</strong>
-      </app-button>
-    </div>
+   
     <a class="text-dark text-decoration-none"routerLink="">Voltar</a>
   </div>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import  { FormBuilder, FormGroup, Validators }  from  '@angular/forms';
 
+import { UserService } from 'src/app/core/services/user.service';
+
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -15,7 +17,8 @@ export class VerifyEmailComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private titleService: Title) {
+    private titleService: Title,
+    private userService: UserService) {
       this.titleService.setTitle('Blupr - Verificar Email');
     }
 
@@ -29,12 +32,17 @@ export class VerifyEmailComponent implements OnInit {
     })
   }
 
-  verifyEmail():void {
-    console.log(this.formVerifyEmail.value);
+  resetPassword():void {
+    this.userService.resetPassword(this.formVerifyEmail.value)
+    .subscribe(res => {
+      console.log(res)
+    },error => {
+      throw Error(error.message);
+    })
   }
 
-  fVerifyEmail(campo: string){
-    return this.formVerifyEmail.get(campo);
+  get fVerifyEmail(){
+    return this.formVerifyEmail.controls;
   }
 
 }

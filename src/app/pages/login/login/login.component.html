@@ -1,40 +1,45 @@
 <app-pages-login title="Fazer Login">
-   <div *ngIf="fLogin('user').errors && fLogin('user').touched && fLogin('user').value.length > 0">
-      <h3 class="text-danger">Email inválido</h3>
-   </div>
-   <div *ngIf="fLogin('password').errors &&
-      fLogin('password').touched &&
-      fLogin('password').value.length < 8 &&
-      fLogin('password').value.length > 0">
-      <h3 class="text-danger">A senha precisa ter no mínimo 8 caracteres</h3>
-   </div>
    <form [formGroup]="formLogin" class="m-auto mt-3" (ngSubmit)="auth()">
       <div class="input-group input-group-sm mb-3">
          <input type="email"
             formControlName="user"
             class="text-white form-control bg-dark rounded-pill p-3"
-            [ngClass]="{'error': cssError('user')}"
+            [ngClass]="{ 'is-invalid': fLogin['user'].errors && fLogin['user'].touched }"
             placeholder="Email">
+
+            <div *ngIf="fLogin['user'].errors && fLogin['user'].touched" 
+              class="invalid-feedback">
+                 <span>Insira um Endereço de email Válido</span>
+            </div>
       </div>
       <div class="input-group input-group-sm mb-3">
          <input [type]="statusInputPassword ? 'text' : 'password'"
             name="password"
             formControlName="password"
             class="text-white form-control bg-dark rounded-pill p-3"
+            [ngClass]="{ 'is-invalid': fLogin['password'].errors && fLogin['password'].touched }"
             placeholder="Senha">
+
+         <div *ngIf="fLogin['password'].errors && fLogin['password'].touched" 
+            class="invalid-feedback">
+               <span>Senha Inválida</span>
+          </div>   
+
          <div class="btn-show-hide-password" (click)="passwordShowHide()">
-            <i *ngIf="!statusInputPassword" class="bi bi-eye-fill"></i>
-            <i *ngIf="statusInputPassword" class="bi bi-eye-slash-fill"></i>
+            <i [ngClass]="{'bi-eye-fill': !statusInputPassword, 'bi-eye-slash-fill': statusInputPassword}" 
+            class="bi"></i>
          </div>
       </div>
+
+      <div class="mb-4">
+         <app-button classBtn="btn-outline-secondary">
+            <strong>Fazer Login</strong>
+         </app-button>
+         <app-button classBtn="btn-outline-primary" routerLink="/login/create-account">
+            <strong>Criar Conta</strong>
+         </app-button>
+      </div>
+
    </form>
-   <div class="mb-4">
-      <app-button classBtn="btn-outline-secondary" (click)="auth()">
-         <strong>Fazer Login</strong>
-      </app-button>
-      <app-button classBtn="btn-outline-primary" routerLink="/login/create-account">
-         <strong>Criar Conta</strong>
-      </app-button>
-   </div>
    <a class="text-dark text-decoration-none" routerLink="/login/verify-email">Redefinir senha</a>
 </app-pages-login>

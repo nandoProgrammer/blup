@@ -14,11 +14,11 @@ import { UrlInterceptor } from './core/interceptors/url.interceptor';
 
 import { AuthGuard } from './core/guards/auth.guard';
 import { PagesLoginComponent } from './pages/login/components/pages-login-component/pages-login.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MainComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +26,8 @@ import { PagesLoginComponent } from './pages/login/components/pages-login-compon
     NgSelectModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [
     {

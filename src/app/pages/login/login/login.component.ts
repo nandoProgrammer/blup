@@ -36,12 +36,8 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  fLogin(field: string):AbstractControl {
-    return this.formLogin.get(field);
-  }
-
-  cssError(field: string):boolean {
-    return !!this.fLogin(field).errors && this.formLogin.get(field).touched;
+  get fLogin() {
+    return this.formLogin.controls;
   }
 
   auth():void {

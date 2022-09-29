@@ -13,4 +13,8 @@ export class UserService {
   createUser(data: any):Observable<any> {
     return this.httpClient.post('/create-user', data);
   }
+
+  resetPassword(email: string):Observable<any> {
+    return this.httpClient.post('/reset-password', email);
+  }
 }

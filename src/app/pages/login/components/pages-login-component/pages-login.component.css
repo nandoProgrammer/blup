@@ -3,6 +3,7 @@
 :root{
     --red: red;
 }
+
 .error{
     border: 1px solid --red !important;
 }
@@ -41,7 +42,7 @@ input, .btn{
     color: white;
     position: absolute;
     left: 90%;
-    top: 28%;
+    top: 16px;
     z-index: 99999
 }
   
