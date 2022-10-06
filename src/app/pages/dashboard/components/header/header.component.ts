@@ -9,7 +9,7 @@ import { FormControl } from '@angular/forms';
 export class HeaderComponent implements OnInit {
 
   public options: Array<{option: string}> = [
-    { option: 'one' }
+    { option: 'Meu Perfil' },
   ];
 
   myControl = new FormControl('');

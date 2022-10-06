@@ -3,3 +3,18 @@
 header {
     background-color: #242121;
 }
+
+.circle-user {
+    width: 30px;
+    height: 30px;
+    background-color: gray;
+    border-radius: 50%;
+    position: relative;
+}
+
+.circle-user i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

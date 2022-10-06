@@ -15,6 +15,7 @@ import { UrlInterceptor } from './core/interceptors/url.interceptor';
 import { AuthGuard } from './core/guards/auth.guard';
 import { PagesLoginComponent } from './pages/login/components/pages-login-component/pages-login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatAutocompleteModule } from '@angular/material/autocomplete'; 
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NgSelectModule,
     FormsModule,
     ReactiveFormsModule,
+    MatAutocompleteModule,
     HttpClientModule,
     BrowserAnimationsModule
   ],
