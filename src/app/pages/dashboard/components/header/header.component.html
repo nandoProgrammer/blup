@@ -14,8 +14,18 @@
         </mat-option>
       </mat-autocomplete>
     </mat-form-field>
-    <div class="circle-user bg-white text-dark">
-      <i class="bi bi-person"></i>
+    <div class="btn-group">
+      <button type="button" class="btn btn-secondary dropdown-toggle circle-user bg-white text-dark" data-toggle="dropdown" data-offset="10,20">
+        <i class="bi bi-person"></i>
+      </button>
+      <div class="dropdown-menu dropdown-menu-right">
+        <div id="triangle"></div>
+        <button class="dropdown-item" type="button">Ação</button>
+        <button class="dropdown-item" type="button">Another Ação</button>
+        <button class="dropdown-item" type="button">Algo mais aqui</button>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Sair</a>
+      </div>
     </div>
    </div>
 </header>
