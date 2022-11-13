@@ -10,6 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'main',
+    component: MainComponent,
     loadChildren: () => import('./main.module').then(m => m.MainComponentModule)
   },
 ];
