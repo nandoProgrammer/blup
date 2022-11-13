@@ -11,8 +11,8 @@ export class AuthService {
 
   constructor(private httpClient: HttpClient) { }
 
-  auth(data: {email: string, password:string}):Observable<any> {
-    return this.httpClient.post('/auth', data)
+  auth(data: {email: string, password:string}):Observable<{id: string, token: string}> {
+    return this.httpClient.post<{id: string, token: string}>('/auth', data)
     .pipe(tap(res => {
       LocalStorage.setItem('tokenBlupr', res.token);
     }));
