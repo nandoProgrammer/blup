@@ -39,7 +39,7 @@ const routes: Routes = [
       path: '',
       component: MainComponent,
       canActivate: [AuthGuard],
-      loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
+      loadChildren: () => import('./pages/dashboard/main/main.module').then(m => m.MainComponentModule)
     }
 ]
 
