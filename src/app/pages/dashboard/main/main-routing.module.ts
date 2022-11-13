@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-import { MainComponent } from './main.component';
+import { MainComponent } from '../../dashboard/main/main.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: MainComponent
-  }
+    redirectTo: '/main',
+    pathMatch: 'full'
+  },
+  {
+    path: 'main',
+    loadChildren: () => import('./main.module').then(m => m.MainComponentModule)
+  },
 ];
 
 @NgModule({
