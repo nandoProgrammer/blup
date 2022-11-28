@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LocalStorage } from 'src/app/core/classes/LocalStorage';
 
 @Component({
   selector: 'app-header',
@@ -14,9 +16,14 @@ export class HeaderComponent implements OnInit {
 
   myControl = new FormControl('');
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  loggout(): void {
+    LocalStorage.clear();
+    this.router.navigate(['/login']);
   }
 
 }
