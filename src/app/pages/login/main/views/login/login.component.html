@@ -1,0 +1,49 @@
+
+   <section>
+      <h1>Fazer Login</h1>
+      <form [formGroup]="formLogin" class="m-auto mt-3" (ngSubmit)="auth()">
+         <div class="input-group input-group-sm mb-3">
+            <input type="email"
+               formControlName="user"
+               class="text-white form-control bg-dark rounded-pill p-3"
+               [ngClass]="{ 'is-invalid': fLogin['user'].errors && fLogin['user'].touched }"
+               placeholder="Email">
+   
+               <div *ngIf="fLogin['user'].errors && fLogin['user'].touched" 
+                 class="invalid-feedback">
+                    <span>Insira um Endereço de email Válido</span>
+               </div>
+         </div>
+         <div class="input-group input-group-sm mb-3">
+            <input [type]="statusInputPassword ? 'text' : 'password'"
+               name="password"
+               formControlName="password"
+               class="text-white form-control bg-dark rounded-pill p-3"
+               [ngClass]="{ 'is-invalid': fLogin['password'].errors && fLogin['password'].touched }"
+               placeholder="Senha">
+   
+            <div *ngIf="fLogin['password'].errors && fLogin['password'].touched" 
+               class="invalid-feedback">
+                  <span>Senha Inválida</span>
+             </div>   
+   
+            <div class="btn-show-hide-password" (click)="passwordShowHide()">
+               <i [ngClass]="{'bi-eye-fill': !statusInputPassword, 'bi-eye-slash-fill': statusInputPassword}" 
+               class="bi"></i>
+            </div>
+         </div>
+   
+         <div class="mb-4">
+            <app-button classBtn="btn-outline-secondary">
+               <strong>Fazer Login</strong>
+            </app-button>
+            <app-button classBtn="btn-outline-primary" routerLink="/login/create-account">
+               <strong>Criar Conta</strong>
+            </app-button>
+         </div>
+   
+      </form>
+      <a class="text-dark text-decoration-none" routerLink="/login/verify-email">Redefinir senha</a>
+   </section>
+   
+

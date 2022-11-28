@@ -1,18 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MainComponent } from '../../dashboard/main/main.component';
+
+import { AuthGuard } from 'src/app/core/guards/auth.guard';
+
+import { FeedComponent } from './views/feed/feed.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/main',
+    redirectTo: '/feed',
     pathMatch: 'full'
   },
   {
-    path: 'main',
-    component: MainComponent,
-    loadChildren: () => import('./main.module').then(m => m.MainComponentModule)
+    path: 'feed',
+    component: FeedComponent,
+    loadChildren: () => import('./views/feed/feed.module').then(m => m.FeedComponentModule)
   },
+  {
+    path: "**",
+    component: FeedComponent
+  }
 ];
 
 @NgModule({

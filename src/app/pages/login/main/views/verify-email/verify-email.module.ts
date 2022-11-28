@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VerifyEmailComponent } from './verify-email.component';
 import { VerifyEmailRoutingModule } from './verify-email-routing.module';
 
-import { ButtonModule } from '../components/button/button.module';
+import { ButtonModule } from '../../../components/button/button.module';
 
 @NgModule({
   declarations: [VerifyEmailComponent],

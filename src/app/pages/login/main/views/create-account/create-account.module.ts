@@ -6,7 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateAccountComponent } from './create-account.component';
 import { CreateAccountRoutingModule } from './create-account-routing.module';
 
-import { ButtonModule } from '../components/button/button.module';
+import { ButtonModule } from '../../../components/button/button.module';
 
 @NgModule({
   declarations: [CreateAccountComponent],

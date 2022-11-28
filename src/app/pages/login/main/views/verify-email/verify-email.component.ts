@@ -8,7 +8,7 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'verify-email',
   templateUrl: './verify-email.component.html',
-  styleUrls: ['../components/pages-login-component/pages-login.component.css','./verify-email.component.css']
+  styleUrls: ['./verify-email.component.css']
 })
 
 export class VerifyEmailComponent implements OnInit {
@@ -18,9 +18,10 @@ export class VerifyEmailComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private titleService: Title,
-    private userService: UserService) {
+    private userService: UserService
+  ) {
       this.titleService.setTitle('Blupr - Verificar Email');
-    }
+  }
 
   ngOnInit():void {
     this.createForm();
@@ -33,11 +34,18 @@ export class VerifyEmailComponent implements OnInit {
   }
 
   resetPassword():void {
+    if(this.formVerifyEmail.invalid){
+      return;
+    }
+
     this.userService.resetPassword(this.formVerifyEmail.value)
-    .subscribe(res => {
-      console.log(res)
-    },error => {
-      throw Error(error.message);
+    .subscribe({
+      next: (res) => {
+        console.log(res)
+      },
+      error: (error) => {
+        throw Error(error.message);
+      }
     })
   }
 

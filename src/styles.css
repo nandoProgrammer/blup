@@ -1,3 +1,10 @@
+:root{
+  --red: red;
+  --green: green;
+  --dark: #242121;
+  --dark-component: #212529;
+}
+
 a:hover{
   cursor: pointer
 }
@@ -7,7 +14,8 @@ a:hover{
   height: auto !important;
   border-radius: 50rem !important;
   padding: 1rem !important;
-  background-color: #212529;
+  background-color: var(--dark-component);
 }
+body { overflow-x: hidden;}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

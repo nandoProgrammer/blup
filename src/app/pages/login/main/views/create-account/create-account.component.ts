@@ -10,7 +10,7 @@ import { UserService } from 'src/app/core/services/user.service';
 @Component({
   selector: 'create-account',
   templateUrl: './create-account.component.html',
-  styleUrls: ['../components/pages-login-component/pages-login.component.css','./create-account.component.css']
+  styleUrls: ['./create-account.component.css']
 })
 
 export class CreateAccountComponent implements OnInit {
@@ -35,7 +35,6 @@ export class CreateAccountComponent implements OnInit {
 
   ngOnInit():void {
     this.createForm();
-    console.log(this.formCreateUser.controls['email'].errors)
   }
 
   createForm():void {

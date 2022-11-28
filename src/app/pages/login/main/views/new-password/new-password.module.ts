@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewPasswordComponent } from './new-password.component';
 import { NewPasswordRoutingModule } from './new-password-routing.module';
 
-import { ButtonModule } from '../components/button/button.module';
+import { ButtonModule } from '../../../components/button/button.module';
 
 @NgModule({
   declarations: [NewPasswordComponent],

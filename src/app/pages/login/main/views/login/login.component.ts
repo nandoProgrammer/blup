@@ -42,20 +42,23 @@ export class LoginComponent implements OnInit {
 
   auth():void {
 
+    if(this.formLogin.invalid){
+      return ;
+    }
+
     let data = {
       "email": this.formLogin.value.user,
       "password": this.formLogin.value.password,
     };
 
     this.authService.auth(data)
-    .subscribe(res => {
-
-      this.router.navigate(['/']);
-
-    },(error) => {
-
-      throw new Error(error.message);
-
+    .subscribe({
+      next: (res) => {
+        this.router.navigate(['/feed']);
+      }, 
+      error: (error) => {
+        throw new Error(error.message);
+      }
     })
 
   }
