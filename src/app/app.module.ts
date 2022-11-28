@@ -4,7 +4,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { MainComponent } from './pages/dashboard/main/main.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
@@ -13,9 +12,11 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { UrlInterceptor } from './core/interceptors/url.interceptor';
 
 import { AuthGuard } from './core/guards/auth.guard';
-import { PagesLoginComponent } from './pages/login/components/pages-login-component/pages-login.component';
+import { NotAuthGuard } from './core/guards/not-auth.guard';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatAutocompleteModule } from '@angular/material/autocomplete'; 
+
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
       multi: true
     },
     AuthGuard,
+    NotAuthGuard
   ],
   bootstrap: [AppComponent]
 })
