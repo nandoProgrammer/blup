@@ -21,19 +21,19 @@ const routes: Routes = [
     loadChildren: () => import('./views/login/login.module').then(m => m.LoginModule)
   },
   {
-    path: 'login/create-account',
+    path: 'create-account',
     component: CreateAccountComponent,
     canActivate: [NotAuthGuard],
     loadChildren: () => import('./views/create-account/create-account.module').then(m => m.CreateAccountModule)
   },
   {
-    path: 'login/new-password',
+    path: 'new-password',
     component: NewPasswordComponent,
     canActivate: [NotAuthGuard],
     loadChildren: () => import('./views/new-password/new-password.module').then(m => m.NewPasswordModule)
   },
   {
-    path: 'login/verify-email',
+    path: 'verify-email',
     component: VerifyEmailComponent,
     canActivate: [NotAuthGuard],
     loadChildren: () => import('./views/verify-email/verify-email.module').then(m => m.VerifyEmailModule)

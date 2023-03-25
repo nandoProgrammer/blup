@@ -35,7 +35,8 @@
    
          <div class="mb-4">
             <app-button classBtn="btn-outline-secondary">
-               <strong>Fazer Login</strong>
+               <strong *ngIf="!loading">Fazer Login</strong>
+               <strong *ngIf="loading">Carregando...</strong>
             </app-button>
             <app-button classBtn="btn-outline-primary" routerLink="/login/create-account">
                <strong>Criar Conta</strong>

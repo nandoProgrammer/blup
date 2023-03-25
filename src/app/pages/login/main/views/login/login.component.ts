@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators }  from  '@angular/forms';
+import { FormBuilder, FormGroup, Validators }  from  '@angular/forms';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 import { AuthService } from 'src/app/core/services/auth.service';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,6 +14,7 @@ export class LoginComponent implements OnInit {
 
   statusInputPassword: boolean = false;
   formLogin: FormGroup;
+  loading: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -41,26 +41,25 @@ export class LoginComponent implements OnInit {
   }
 
   auth():void {
+    if(this.formLogin.invalid) return;
 
-    if(this.formLogin.invalid){
-      return ;
-    }
+    this.loading = true;
 
-    let data = {
+    const data = {
       "email": this.formLogin.value.user,
       "password": this.formLogin.value.password,
     };
 
-    this.authService.auth(data)
-    .subscribe({
+    this.authService.auth(data).subscribe({
       next: (res) => {
+        this.loading = false;
         this.router.navigate(['/feed']);
       }, 
       error: (error) => {
+        this.loading = false;
         throw new Error(error.message);
       }
     })
-
   }
 
   passwordShowHide():void {

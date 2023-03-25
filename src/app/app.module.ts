@@ -16,11 +16,14 @@ import { NotAuthGuard } from './core/guards/not-auth.guard';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatAutocompleteModule } from '@angular/material/autocomplete'; 
+import { MatDialogModule } from '@angular/material/dialog';
 
-
+import { PostDialogComponent } from './pages/dashboard/components/post-dialog/post-dialog.component';
 @NgModule({
+  entryComponents: [PostDialogComponent],
   declarations: [
-    AppComponent
+    AppComponent,
+    PostDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +32,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     FormsModule,
     ReactiveFormsModule,
     MatAutocompleteModule,
+    MatDialogModule,
     HttpClientModule,
     BrowserAnimationsModule
   ],

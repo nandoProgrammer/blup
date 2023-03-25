@@ -15,6 +15,7 @@ export class AuthService {
     return this.httpClient.post<{id: string, token: string}>('/auth', data)
     .pipe(tap(res => {
       LocalStorage.setItem('tokenBlupr', res.token);
+      LocalStorage.setItem('idUser', res.id);
     }));
   }
 

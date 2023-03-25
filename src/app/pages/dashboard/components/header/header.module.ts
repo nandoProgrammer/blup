@@ -8,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { HeaderRoutingModule } from './header-routing.module';
 
 @NgModule({
   declarations: [HeaderComponent],
@@ -16,7 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatAutocompleteModule,
     MatInputModule,
     MatFormFieldModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HeaderRoutingModule
   ],
   exports: [HeaderComponent]
 })

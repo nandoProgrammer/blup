@@ -1,13 +1,53 @@
-<div class="post-content w-50 d-flex justify-content-between mx-auto px-5 pt-5">
+<div class="post-content w-50 px-5 pt-3">
     <div class="w-100 text-left px-3">
-        <div class="icon-user">
-
+        <div class="w-100 d-flex justify-content-between">
+            <div>
+                <div class="icon-user d-flex justify-content-center align-items-center">
+                    <i *ngIf="!user.image" class="bi bi-person text-dark"></i>
+                    <img *ngIf="user.image" [src]="user.image" />
+                </div>
+                <p>{{user.name}}</p>
+            </div>
+            <button class="edit-icon" (click)="editPost()"><i class="bi bi-pen-fill"></i></button>
         </div>
-        <p>Lorem Ipsum dolor sitamet</p>
+
+        <div class="w-100 py-4">
+            <p>{{data.content}}</p>
+        </div>
+       
         <div class="w-100 d-flex flex-row justify-content-between my-3">
-           <button>Like</button>
-           <button>Comment</button>
-           <button>share</button>
+           <button class="action-post-button" [ngClass]="{'like-active': false}"><i class="bi bi-hand-thumbs-up"></i> Curtir</button>
+           <button class="action-post-button" (click)="statusComents()"><i class="bi bi-chat-left"></i> Comentar</button>
+           <button class="action-post-button"><i class="bi bi-share"></i> Compartilhar</button>
+        </div>
+
+    </div>
+
+    <div class="w-100" *ngIf="statusComments">
+        <div class="w-100 d-flex justify-content-center py-3 align-items-end">
+            <input 
+              type="email" 
+              class="comment-input" 
+              #comment="ngModel" 
+              [ngModel]="comment.value" 
+              placeholder="Comente Algo..." 
+              required
+            >
+            <button 
+              [ngClass]="{'button-disabled': !comment.valid}" 
+              class="comment-button" 
+              (click)="sendComment(comment.value)"
+              [disabled]="!comment.valid"
+              >Comentar</button>
+        </div>
+        <div class="w-100 text-white pt-2 pb-4 d-flex flex-column" *ngFor="let item of listComments">
+            <div class="w-100 d-flex">
+                <div class="icon-user-comments"></div>
+                <p class="ml-1 mb-0">Fuladno de tal</p>
+            </div>
+            <div class="w-100 pt-3 pl-4 text-left">
+                <p>{{item.content}}</p>
+            </div>
         </div>
     </div>
 </div>

@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>
+  <span *ngIf="!idPost">O Que Você Está Pensando?</span>
+  <span *ngIf="idPost">Editar Post</span>
+</h1>
+<mat-dialog-content>
+  <form [formGroup]="formPost">
+    <textarea formControlName="content"></textarea>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button class="btn btn-primary rounded-pill" (click)="send()">Postar</button>
+</mat-dialog-actions>

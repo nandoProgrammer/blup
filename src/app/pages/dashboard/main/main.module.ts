@@ -4,8 +4,9 @@ import { HeaderModule } from '../components/header/header.module';
 
 import { MainComponent } from './main.component';
 import { MainRoutingModule } from './main-routing.module';
+import { EditUserComponent } from './views/edit-user/edit-user.component';
 @NgModule({
-  declarations: [MainComponent],
+  declarations: [MainComponent, EditUserComponent],
   imports: [
     CommonModule,
     HeaderModule,

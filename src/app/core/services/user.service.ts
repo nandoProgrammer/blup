@@ -10,6 +10,10 @@ export class UserService {
 
   constructor(private httpClient: HttpClient) { }
 
+  getUser(idUser: string):Observable<any> {
+    return this.httpClient.get(`/get-user/${idUser}`);
+  }
+
   createUser(data: any):Observable<any> {
     return this.httpClient.post('/create-user', data);
   }
